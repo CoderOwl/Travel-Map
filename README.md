@@ -14,6 +14,8 @@ Table Name: `PHOTOS`
 
 Attributes: `ID`, `PLACE` (Name of the place), `LAT` (Latitude), `LNG` (Longitude), `PHOTO`(Name of photo file)
 
+The table creation has been put as a mysql dump in the file `db.sql`
+
 ### Running the app
 1. Install `flask` and `flask_mysqldb`. 
 2. Clone this repository and add GoogleAPIKey and the mysql root password for your system in the configuration files.
@@ -22,7 +24,7 @@ Attributes: `ID`, `PLACE` (Name of the place), `LAT` (Latitude), `LNG` (Longitud
 5. Open `http://127.0.0.1:5000/` in a browser. 
 
 ### TODO
-- [ ] Push SQL dump. 
+- [x] Push SQL dump. 
 - [ ] Heroku Deployment. 
 - [ ] UI for adding into db. 
 - [ ] Changing infoview style to look better. 
