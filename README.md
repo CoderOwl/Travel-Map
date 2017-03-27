@@ -1,6 +1,10 @@
 # Travel-Map
 On the lines of instagram's photo map.
 
+### Sample
+
+<a href="http://tinypic.com?ref=2ed8589" target="_blank"><img src="http://i66.tinypic.com/2ed8589.png" border="0" alt="Image and video hosting by TinyPic"></a>
+
 ### Introduction
 This is a python-flask-mysql application which lets you add markers to locations on the map and attach infoviews
 containing photographs.
