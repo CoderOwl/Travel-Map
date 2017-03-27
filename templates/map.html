@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>My Travel Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+       #map {
+        height: 100%;
+       }
+       html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <!-- TODO: Get bootstrap files locally -->
+  <link href ="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href ="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+  <body>
+    <div id="map"></div>
+  </body>
+  <script type='text/javascript' src='../static/config.js'></script>
+  <script>
+      function initMap() {
+        var india = {lat: 22.592798, lng: 79.366908};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 5,
+          center: india
+        });
+        {% for photo in photos %}
+                    var location = new google.maps.LatLng({{ photo[2] }}, {{ photo[3] }});
+                    var marker = new google.maps.Marker({
+                      position: location,
+                      map: map
+                    });
+                    attachPhoto(marker, '{{photo[4]}}');
+        {% endfor %}
+      }
+      function attachPhoto(marker, photoLocation) {
+        var infowindow = new google.maps.InfoWindow({
+          content: '<div ><a href="/static/'+ photoLocation +'"><img src="/static/'+ photoLocation +'" alt="" width="300" height="200"></a></div>'
+        });
+
+        marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
+      }
+  </script>
+  <script>
+    var src = "https://maps.googleapis.com/maps/api/js?key=" + config.GoogleMapsAPI + "&callback=initMap";
+    var scriptTag = "<script async defer src='"+ src + "'><\/script>";
+    document.write(scriptTag);
+  </script>
+</html>
