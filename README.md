@@ -21,11 +21,14 @@ Attributes: `ID`, `PLACE` (Name of the place), `LAT` (Latitude), `LNG` (Longitud
 The table creation has been put as a mysql dump in the file `db.sql`
 
 ### Running the app
-1. Install `flask` and `flask_mysqldb`. 
-2. Clone this repository and add GoogleAPIKey and the mysql root password for your system in the configuration files.
-3. Replicate the schema and add entries as required. Don't forget to put your photo files in the `/static/` directory. 
-4. Run `python myTravelMap.py`
-5. Open `http://127.0.0.1:5000/` in a browser. 
+1. Clone the repository
+2. Create a virtualenv and in the environment, run `sudo -r pip install -r requirements.txt`. It's likely you will need to run `sudo apt-get install libmysqlclient-dev python-dev` before pip can install `flask-mysqldb`.
+3. Add GoogleAPIKey and the mysql root password for your system in the configuration files.
+4. Create a db with name `TravelMap` and run `mysql -u root -p TravelMap < db.sql` from the shell being in the root dir of the project. 
+5. Run `python myTravelMap.py`
+6. Open `http://127.0.0.1:5000/` in a browser. 
+
+You can add entries into the db and add your pictures in the `/static/` folder to add them to the map. 
 
 ### TODO
 - [x] Push SQL dump. 
